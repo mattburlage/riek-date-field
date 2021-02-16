@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import RIEDateField from "./RIEDateField";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    let [date, setDate] = useState(new Date())
+
+    return (
+        <div style={{margin: '30px', textAlign: 'center'}}>
+            Here it is: <br/><br/>
+            <RIEDateField
+                value={date}
+                onChange={setDate}
+            />
+            <hr/>
+            {date.toString()}
+        </div>
+    );
 }
 
 export default App;
